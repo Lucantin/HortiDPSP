@@ -9,15 +9,16 @@ export default function Inicio() {
     const history = useHistory()
 
     async function listarProdutos(event) {
+        event.preventDefault()
         history.push('/produtos')
     }
 
     return (
         <div className='inicio__container'>
             <section className='inicio__container'>
-                <img src={Logo} alt='Logo' className='inicio__logo' />
+                <img src={Logo} alt='Logo' className='center' />
                 <br/>
-                <Button onClick={listarProdutos}>Ver produtos</Button>
+                <Button className="center" onClick={listarProdutos}>Ver produtos</Button>
             </section>
         </div>
     )
