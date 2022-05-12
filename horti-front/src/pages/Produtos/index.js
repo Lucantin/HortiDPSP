@@ -10,6 +10,12 @@ export default function Produtos() {
     const [ produtos, setProdutos] = useState([]);
     const history = useHistory();
 
+    async function details(event, produto_id) {
+        event.preventDefault()
+        history.push(`/detalhes/${produto_id}`)
+        window.location.reload()
+    }
+
 
     useEffect(() => {
         api.get('/item')
@@ -30,7 +36,7 @@ export default function Produtos() {
                     <Card key={produto.id} title={produto.name} bordered={false} style={{width: 300}}>
                         <p>Descrição: {produto.description}</p>
                         <p>Quantidade: {produto.quantity}</p>
-                        <Button onClick={() => history.push(`/detalhes/${produto.id}`)}>Detalhes</Button>
+                        <Button onClick={(e)=>{details(e, produto.id)}}>Detalhes</Button>
                     </Card>
                 ))}
             </div>

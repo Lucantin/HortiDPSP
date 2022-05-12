@@ -11,6 +11,7 @@ export default function Inicio() {
     async function listarProdutos(event) {
         event.preventDefault()
         history.push('/produtos')
+        window.location.reload()
     }
 
     return (
